@@ -159,7 +159,7 @@ function smooth_move_8way_set_angle(_smooth_move, _angle) {
 		if (_angle < 0) _angle = _angle % (-2*pi) + 2*pi;
 		if (_angle >= 2*pi) _angle %= 2*pi;
 	
-		if ((_angle >= 15*pi/8) && (_angle < 1*pi/8)) _angle = 0*pi/8;
+		if ((_angle >= 15*pi/8) || (_angle < 1*pi/8)) _angle = 0*pi/8;
 		else if ((_angle >= 1*pi/8) && (_angle < 3*pi/8)) _angle = 2*pi/8;
 		else if ((_angle >= 3*pi/8) && (_angle < 5*pi/8)) _angle = 4*pi/8;
 		else if ((_angle >= 5*pi/8) && (_angle < 7*pi/8)) _angle = 6*pi/8;

@@ -1,3 +1,4 @@
+// @ignore
 function __tests_smoothmove_8way(){
 	/**
 	 * Assert function for testing real numbers in this package.
@@ -33,6 +34,21 @@ function __tests_smoothmove_8way(){
 	smooth_move_8way_set_angle(_test_angles, 7*pi/4);
 	test_smooth_move_assert_real(_test_angles.angle, 7*pi/4, "Smooth move angle test 7*pi/4 fail!");
 	
+	var _acceptable_angles = [
+		0*pi/4,
+		1*pi/4,
+		2*pi/4,
+		3*pi/4,
+		4*pi/4,
+		5*pi/4,
+		6*pi/4,
+		7*pi/4,
+	];
+	
+	for (var _i = 0; _i < 10000; _i++) {
+		smooth_move_8way_set_angle(_test_angles, random(2*pi));
+		if (!array_contains(_acceptable_angles, _test_angles.angle)) show_error($"Smooth move angle snapping test fail! Angle {_test_angles.angle} did not snap to a cardinal or intermediate.", true);
+	}
 	
 	// negative and positive angles
 	smooth_move_8way_set_angle(_test_angles, -11*pi);

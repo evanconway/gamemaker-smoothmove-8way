@@ -21,7 +21,11 @@
   },
   "resources": [
     {"id":{"name":"SmoothMove8Way","path":"scripts/SmoothMove8Way/SmoothMove8Way.yy",},},
+    {"id":{"name":"utils","path":"scripts/utils/utils.yy",},},
     {"id":{"name":"tests_smoothmove_8way","path":"scripts/tests_smoothmove_8way/tests_smoothmove_8way.yy",},},
+    {"id":{"name":"Sprite1","path":"sprites/Sprite1/Sprite1.yy",},},
+    {"id":{"name":"o_smooth_move_8way_demo","path":"objects/o_smooth_move_8way_demo/o_smooth_move_8way_demo.yy",},},
+    {"id":{"name":"fnt_tiny","path":"fonts/fnt_tiny/fnt_tiny.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "RoomOrderNodes": [

@@ -3,7 +3,11 @@
     {"name":"SmoothMove_8way","order":9,"path":"folders/SmoothMove_8way.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"utils","order":11,"path":"scripts/utils/utils.yy",},
     {"name":"tests_smoothmove_8way","order":1,"path":"scripts/tests_smoothmove_8way/tests_smoothmove_8way.yy",},
+    {"name":"Sprite1","order":12,"path":"sprites/Sprite1/Sprite1.yy",},
+    {"name":"o_smooth_move_8way_demo","order":10,"path":"objects/o_smooth_move_8way_demo/o_smooth_move_8way_demo.yy",},
+    {"name":"fnt_tiny","order":13,"path":"fonts/fnt_tiny/fnt_tiny.yy",},
     {"name":"Room1","order":8,"path":"rooms/Room1/Room1.yy",},
   ],
 }

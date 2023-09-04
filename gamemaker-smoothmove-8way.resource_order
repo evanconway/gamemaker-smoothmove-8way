@@ -3,6 +3,7 @@
     {"name":"SmoothMove_8way","order":9,"path":"folders/SmoothMove_8way.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"tests_smoothmove_8way","order":1,"path":"scripts/tests_smoothmove_8way/tests_smoothmove_8way.yy",},
     {"name":"Room1","order":8,"path":"rooms/Room1/Room1.yy",},
   ],
 }

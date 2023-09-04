@@ -21,6 +21,7 @@
   },
   "resources": [
     {"id":{"name":"SmoothMove8Way","path":"scripts/SmoothMove8Way/SmoothMove8Way.yy",},},
+    {"id":{"name":"tests_smoothmove_8way","path":"scripts/tests_smoothmove_8way/tests_smoothmove_8way.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "RoomOrderNodes": [

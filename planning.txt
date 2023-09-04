@@ -1,0 +1,19 @@
+4th of September, 2023
+
+This is a redo of the smooth_move project, but only accounting for 8 way directions. We need better math, or study, or something to figure out how to make this work with any direction at any time. Despite being simler we're still running into issues. Right now our issue is gaps are still appearing. Here's the state right before a movement:
+
+start_x: 117
+start_y: 66
+angle: 0
+delta: 11.991486864837317
+
+calculated x: 128
+calculated y: 66
+
+And here we moved by vector with:
+angle: -0.13157162427439748
+magnitude: 1.0086822260112847
+
+After performing this movement our position is (130, 66). It should not be possible to skip steps with a velocity of 1...
+
+Oh my, I looked over our code again and we're calculating the velocity when using the analog stick using the stick directly. We never bothered to cap it at 1. It was totally possible for the stick to produce a velocity greater than 1. Was this silly mistake the source of all our confusion? Is it possible our math was correct before, but we assumed it was wrong because were actually moving further than we thought we were?

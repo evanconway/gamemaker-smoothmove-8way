@@ -20,13 +20,16 @@ stick_mag = sqrt(sqr(stick.axis_h) + sqr(stick.axis_v));
 stick_angle = arctan2(stick.axis_v, stick.axis_h);
 if (stick_mag > 0) {
 	_angle = stick_angle;
-	_vel = stick_mag * 1;
-	//_vel = 1
+	_vel = min(stick_mag, 1);
 }
 
-
-if (keyboard_check(vk_space) && _vel == 0) {
-	show_debug_message("debug");
+var _pre_move_state = {
+	pre_x: smooth_move_8way_get_x(smooth_move),
+	pre_y: smooth_move_8way_get_y(smooth_move),
+	start_x: smooth_move.start_x,
+	start_y: smooth_move.start_y,
+	delta: smooth_move.delta,
+	angle: smooth_move.angle,
 }
 
 smooth_move_8way_move_by_vector(smooth_move, _angle, _vel);
@@ -34,7 +37,9 @@ smooth_move_8way_move_by_vector(smooth_move, _angle, _vel);
 x = smooth_move_8way_get_x(smooth_move);
 y = smooth_move_8way_get_y(smooth_move);
 
-//draw_self();
+if (sqrt(sqr(_pre_move_state.pre_x - x) + sqr(_pre_move_state.pre_y - y)) > sqrt(2)) {
+	show_message("debug");
+}
 
 if (keyboard_check_pressed(ord("C"))) {
 	positions = create_positions();

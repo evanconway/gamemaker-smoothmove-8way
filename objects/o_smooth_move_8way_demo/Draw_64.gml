@@ -3,3 +3,5 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(fnt_tiny);
 draw_text_ext(2, 0, smooth_move_tostring(smooth_move), 0, 10000);
+
+if (keyboard_check_pressed(ord("R"))) game_restart();

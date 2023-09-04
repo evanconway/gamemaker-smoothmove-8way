@@ -128,7 +128,7 @@ function smooth_move_8way_get_x(_smooth_move) {
  * @param {Struct.SmoothMove8Way} _smooth_move
  */
 function smooth_move_8way_get_y(_smooth_move) {
-		with (_smooth_move) {
+	with (_smooth_move) {
 		if (delta == 0) return start_y;
 		if (!infer_y_from_x()) {
 			var _mag_y = get_magnitude_y();

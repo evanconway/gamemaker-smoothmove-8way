@@ -32,10 +32,7 @@ function SmoothMove8Way(_x, _y) constructor{
  */
 function smooth_move_8way_set_angle(_smooth_move, _angle) {
 	with (_smooth_move) {
-		if (_angle < 0) {
-			_angle %= -2*pi
-			_angle += 2*pi;
-		}
+		if (_angle < 0) _angle = _angle % (-2*pi) + 2*pi;
 		if (_angle >= 2*pi) _angle %= 2*pi;
 	
 		if ((_angle >= 15*pi/8) && (_angle < 1*pi/8)) _angle = 0*pi/8;

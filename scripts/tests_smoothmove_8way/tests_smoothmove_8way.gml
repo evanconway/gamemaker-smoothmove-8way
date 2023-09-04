@@ -40,73 +40,96 @@ function __tests_smoothmove_8way(){
 	smooth_move_8way_set_angle(_test_angles, 11*pi);
 	test_smooth_move_assert_real(_test_angles.angle, pi, "Smooth move angle test -3*pi fail!");
 	
-	/*
+	
 	var _move_count = 1000;
 	
 	// north
-	var _n = new SmoothMove(0, 0);
+	var _n = new SmoothMove8Way(0, 0);
 	for (var _i = 0; _i < _move_count; _i++) {
-		smooth_move_by_vector(_n, 0, 1);
+		smooth_move_8way_move_by_vector(_n, 6*pi/4, 1);
 	}
-	test_smooth_move_assert_real(smooth_move_get_x(_n), 0, "Smooth move north test x fail!");
-	test_smooth_move_assert_real(smooth_move_get_y(_n), -1000, "Smooth move north test y fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_n), 0, "Smooth move north test 1 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_n), -1000, "Smooth move north test 1 y fail!");
+	smooth_move_8way_move_by_vector(_n, 0, 0);
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_n), 0, "Smooth move north test 2 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_n), -1000, "Smooth move north test 2 y fail!");
 	
 	// south
-	var _s = new SmoothMove(0, 0);
+	var _s = new SmoothMove8Way(0, 0);
 	for (var _i = 0; _i < _move_count; _i++) {
-		smooth_move_by_vector(_s, pi, 1);
+		smooth_move_8way_move_by_vector(_s, 2*pi/4, 1);
 	}
-	test_smooth_move_assert_real(smooth_move_get_x(_s), 0, "Smooth move south test x fail!");
-	test_smooth_move_assert_real(smooth_move_get_y(_s), 1000, "Smooth move south test y fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_s), 0, "Smooth move south test 1 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_s), 1000, "Smooth move south test 1 y fail!");
+	smooth_move_8way_move_by_vector(_s, 0, 0);
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_s), 0, "Smooth move south test 2 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_s), 1000, "Smooth move south test 2 y fail!");
 	
 	// east
-	var _e = new SmoothMove(0, 0);
+	var _e = new SmoothMove8Way(0, 0);
 	for (var _i = 0; _i < _move_count; _i++) {
-		smooth_move_by_vector(_e, 3*pi/2, 1);
+		smooth_move_8way_move_by_vector(_e, 0*pi/4, 1);
 	}
-	test_smooth_move_assert_real(smooth_move_get_x(_e), -1000, "Smooth move east test x fail!");
-	test_smooth_move_assert_real(smooth_move_get_y(_e), 0, "Smooth move east test y fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_e), 1000, "Smooth move east test 1 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_e), 0, "Smooth move east test 1 y fail!");
+	smooth_move_8way_move_by_vector(_e, 0, 0);
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_e), 1000, "Smooth move east test 2 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_e), 0, "Smooth move east test 2 y fail!");
 	
 	// west
-	var _w = new SmoothMove(0, 0);
+	var _w = new SmoothMove8Way(0, 0);
 	for (var _i = 0; _i < _move_count; _i++) {
-		smooth_move_by_vector(_w, pi/2, 1);
+		smooth_move_8way_move_by_vector(_w, 4*pi/4, 1);
 	}
-	test_smooth_move_assert_real(smooth_move_get_x(_w), 1000, "Smooth move west test x fail!");
-	test_smooth_move_assert_real(smooth_move_get_y(_w), 0, "Smooth move west test y fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_w), -1000, "Smooth move west test 1 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_w), 0, "Smooth move west test 1 y fail!");
+	smooth_move_8way_move_by_vector(_w, 0, 0);
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_w), -1000, "Smooth move west test 2 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_w), 0, "Smooth move west test 2 y fail!");
 	
 	// north east
-	var _ne = new SmoothMove(0, 0);
+	var _ne = new SmoothMove8Way(0, 0);
 	for (var _i = 0; _i < _move_count; _i++) {
-		smooth_move_by_vector(_ne, 7*pi/4, 1);
+		smooth_move_8way_move_by_vector(_ne, 7*pi/4, 1);
 	}
-	test_smooth_move_assert_real(smooth_move_get_x(_ne), -707, "Smooth move north east test x fail!");
-	test_smooth_move_assert_real(smooth_move_get_y(_ne), -707, "Smooth move north east test y fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_ne), 707, "Smooth move north east test 1 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_ne), -707, "Smooth move north east test 1 y fail!");
+	smooth_move_8way_move_by_vector(_ne, 0, 0);
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_ne), 707, "Smooth move north east test 2 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_ne), -707, "Smooth move north east test 2 y fail!");
 	
 	// north west
-	var _nw = new SmoothMove(0, 0);
+	var _nw = new SmoothMove8Way(0, 0);
 	for (var _i = 0; _i < _move_count; _i++) {
-		smooth_move_by_vector(_nw, pi/4, 1);
+		smooth_move_8way_move_by_vector(_nw, 5*pi/4, 1);
 	}
-	test_smooth_move_assert_real(smooth_move_get_x(_nw), 707, "Smooth move north west test x fail!");
-	test_smooth_move_assert_real(smooth_move_get_y(_nw), -707, "Smooth move north west test y fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_nw), -707, "Smooth move north west test 1 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_nw), -707, "Smooth move north west test 1 y fail!");
+	smooth_move_8way_move_by_vector(_nw, 0, 0);
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_nw), -707, "Smooth move north west test 2 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_nw), -707, "Smooth move north west test 2 y fail!");
 	
 	// south east
-	var _se = new SmoothMove(0, 0);
+	var _se = new SmoothMove8Way(0, 0);
 	for (var _i = 0; _i < _move_count; _i++) {
-		smooth_move_by_vector(_se, 5*pi/4, 1);
+		smooth_move_8way_move_by_vector(_se, 1*pi/4, 1);
 	}
-	test_smooth_move_assert_real(smooth_move_get_x(_se), -707, "Smooth move south east test x fail!");
-	test_smooth_move_assert_real(smooth_move_get_y(_se), 707, "Smooth move south east test y fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_se), 707, "Smooth move south east test 1 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_se), 707, "Smooth move south east test 1 y fail!");
+	smooth_move_8way_move_by_vector(_se, 0, 0);
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_se), 707, "Smooth move south east test 2 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_se), 707, "Smooth move south east test 2 y fail!");
 	
 	// south west
-	var _sw = new SmoothMove(0, 0);
+	var _sw = new SmoothMove8Way(0, 0);
 	for (var _i = 0; _i < _move_count; _i++) {
-		smooth_move_by_vector(_sw, 3*pi/4, 1);
+		smooth_move_8way_move_by_vector(_sw, 3*pi/4, 1);
 	}
-	test_smooth_move_assert_real(smooth_move_get_x(_sw), 707, "Smooth move south west test x fail!");
-	test_smooth_move_assert_real(smooth_move_get_y(_sw), 707, "Smooth move south west test y fail!");
-	*/
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_sw), -707, "Smooth move south west test 1 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_sw), 707, "Smooth move south west test 1 y fail!");
+	smooth_move_8way_move_by_vector(_sw, 0, 0);
+	test_smooth_move_assert_real(smooth_move_8way_get_x(_sw), -707, "Smooth move south west test 2 x fail!");
+	test_smooth_move_assert_real(smooth_move_8way_get_y(_sw), 707, "Smooth move south west test 2 y fail!");
 }
 
 __tests_smoothmove_8way();
